@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -10,5 +12,12 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  constructor(private router: Router) { }
+
   title = 'my-angular-app';
+  redirecting()
+  {
+    this.router.navigate(['/my-new-component']);
+
+  }
 }
