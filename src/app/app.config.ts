@@ -3,10 +3,9 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PublicClientApplication, InteractionType, LogLevel,BrowserCacheLocation } from '@azure/msal-browser';
-import { MsalGuard, MsalService, MsalBroadcastService, MsalModule, MsalInterceptor, MSAL_GUARD_CONFIG, MSAL_INSTANCE, MSAL_INTERCEPTOR_CONFIG, MsalGuardConfiguration, MsalInterceptorConfiguration } from '@azure/msal-angular';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MsalGuard, MsalService, MsalBroadcastService, MsalInterceptor, MSAL_GUARD_CONFIG, MSAL_INSTANCE, MSAL_INTERCEPTOR_CONFIG, MsalGuardConfiguration, MsalInterceptorConfiguration } from '@azure/msal-angular';
+import {  HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 const msalInstance = new PublicClientApplication({
