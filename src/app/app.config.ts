@@ -4,15 +4,16 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { PublicClientApplication, InteractionType, LogLevel,BrowserCacheLocation } from '@azure/msal-browser';
-import { MsalGuard, MsalService, MsalBroadcastService, MsalInterceptor, MSAL_GUARD_CONFIG, MSAL_INSTANCE, MSAL_INTERCEPTOR_CONFIG, MsalGuardConfiguration, MsalInterceptorConfiguration } from '@azure/msal-angular';
+import { MsalGuard, MsalService, MsalBroadcastService, MsalInterceptor, MSAL_GUARD_CONFIG, MSAL_INSTANCE, MSAL_INTERCEPTOR_CONFIG, MsalGuardConfiguration, MsalInterceptorConfiguration,MsalRedirectComponent } from '@azure/msal-angular';
 import {  HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 const msalInstance = new PublicClientApplication({
   auth: {
     clientId: 'b8cb5b26-ba2c-4116-a573-8e42d5f27add',
-    redirectUri: 'https://curious-sprite-940333.netlify.app/my-new-component',
-    authority: 'https://login.microsoftonline.com/b199a711-f206-4902-bb68-c0a1620f76c9'
+    redirectUri: 'http://localhost:4200',
+    authority: 'https://login.microsoftonline.com/b199a711-f206-4902-bb68-c0a1620f76c9',
+    
   },
   cache: {
     cacheLocation: BrowserCacheLocation.LocalStorage
@@ -51,5 +52,7 @@ export const appConfig: ApplicationConfig = {
     { provide: HTTP_INTERCEPTORS, useClass: MsalInterceptor, multi: true },
     MsalService,
     MsalGuard,
-    MsalBroadcastService]
+    MsalBroadcastService,
+    MsalRedirectComponent
+  ]
 };
